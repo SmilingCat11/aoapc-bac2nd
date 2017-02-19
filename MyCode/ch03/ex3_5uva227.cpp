@@ -4,9 +4,12 @@
 // 尽可能只一次读取字符
 // 数组间如何交换，swap(s[i][j], s[i++][j])是否合理
 // 二维数组如何全置零
+// A denotes that the square above the empty position moves. So you have mixed up which one should move.
+// that means A denotes that the empty moves below. 
 
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 
 void swap(char * x, char * y) {
 	char t;
@@ -19,7 +22,7 @@ int main()
 {
 	freopen("test.in", "r", stdin);
 	freopen("test.out", "w", stdout);
-	char s[6][6] = {};
+	char s[5][5] = {};
 	int c;
 	int fi = 0, fj = 0;
 	int i = 0, j = 0;
@@ -28,12 +31,12 @@ int main()
 	
 	while ((c = getchar()) != 'Z') {
 		if (i <= 4) {
-			if (c != '\n') {
+			if ( isalpha(c) || c == ' ' ) {
 				if (c == ' ') {fi = i; fj = j;}
 				s[i][j++] = c;
 			}
-			else {j = 0; i++;}
-		}
+			if (j > 4) {j = 0; i++;}
+		} 
 
 		if (i > 4 && c != '0') {
 			if (flag) { switch (c) {
@@ -42,7 +45,7 @@ int main()
 					else flag = 0;
 					break;
 				case 'B':
-					if (fi<5) { swap(&s[fi][fj], &s[fi+1][fj]); fi++; }
+					if (fi<4) { swap(&s[fi][fj], &s[fi+1][fj]); fi++; }
 					else flag = 0;
 					break;
 				case 'L':
@@ -50,7 +53,7 @@ int main()
 					else flag = 0;
 					break;
 				case 'R':
-					if (fj<5) { swap(&s[fi][fj], &s[fi][fj+1]); fj++; }
+					if (fj<4) { swap(&s[fi][fj], &s[fi][fj+1]); fj++; }
 					else flag = 0;
 					break;
 				default:
@@ -60,6 +63,7 @@ int main()
 		}
 
 		if (i > 4 && c == '0') {
+			if (count) printf("\n");
 			printf("Puzzle #%d:\n", ++count);
 			if (flag) { 
 				for (int i = 0; i < 5; i++) {
@@ -68,12 +72,13 @@ int main()
 						if (first) first = 0;
 						else printf(" ");
 						printf("%c", s[i][j]);
+						s[i][j] = 0; 
 					}
 				printf("\n");
 				}
-			printf("\n");
+//			printf("\n");
 			}
-			else printf("This puzzle has no final configuration.\n\n");
+			else printf("This puzzle has no final configuration.\n");
 			i = 0; j = 0;  // initialation
 			fi = 0; fj = 0;
 			flag = 1; // initialation

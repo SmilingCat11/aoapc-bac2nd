@@ -8,8 +8,8 @@ const int maxn = 85;
 int main()
 {
 
-	freopen("test.in", "r", stdin);
-	freopen("test.out", "w", stdout);
+//	freopen("test.in", "r", stdin);
+//	freopen("test.out", "w", stdout);
 
 	int T;
 	scanf("%d", &T);
