@@ -20,8 +20,8 @@ void swap(char * x, char * y) {
 
 int main()
 {
-	freopen("test.in", "r", stdin);
-	freopen("test.out", "w", stdout);
+//	freopen("test.in", "r", stdin);
+//	freopen("test.out", "w", stdout);
 	char s[5][5] = {};
 	int c;
 	int fi = 0, fj = 0;
