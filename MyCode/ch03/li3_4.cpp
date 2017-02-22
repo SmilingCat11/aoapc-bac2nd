@@ -16,8 +16,7 @@ int main()
 			x = abc * (de % 10);
 			y = abc * (de / 10);
 			z = abc * de;
-			long num = (((abc * 100 + de)*10000+x)*10000+y)*100000+z;
-			sprintf(s_num, "%d", num);
+			sprintf(s_num, "%d%d%d%d%d", abc, de, x, y, z);
 
 			int i = 0, j = 0;
 			int flag = 1;
@@ -29,14 +28,14 @@ int main()
 			}
 			if (i == strlen(s_num)) {
 					printf("<%d>\n", ++count);
-printf("num = %ld, s_num = %s, s = %s\n", num, s_num, s);
+
 					printf("%5d\nX%4d\n-----\n", abc, de);
 					printf("%5d\n%5d\n-----\n%d\n", x, y, z);
 
 			}
 		}
 	}
-	printf("The number of solutions = %d\n");
+	printf("The number of solutions = %d\n", count);
 
 	return 0;
 }
