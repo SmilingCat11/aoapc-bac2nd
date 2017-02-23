@@ -6,14 +6,14 @@
 #define maxn 1005
 int seqs[maxn][4];
 char s[maxn];
-const char dna[] = "ACGT";
+const char dna[] = "ACGT"; // the sequence is important!
 char consensus[maxn] = {};
 
 int main()
 {
 
-	freopen("test.in", "r", stdin);
-	freopen("test.out", "w", stdout);
+//	freopen("test.in", "r", stdin);
+//	freopen("test.out", "w", stdout);
 
 	int T;
 	scanf("%d", &T);
