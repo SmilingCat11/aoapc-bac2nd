@@ -38,7 +38,6 @@ int main()
 		if (puzzle != 1) printf("\n");
 		printf("puzzle #%d:\n", puzzle++);
 		printf("Across\n");
-		
 		for (int i = 0; i < r; i++) {
 			for (int j = 0; j < c; j++) {
 				if (num[i][j] != 0) {
@@ -53,7 +52,7 @@ int main()
 
 		printf("Down\n");
 		for (int i = 0; i < r; i++) {
-			for (int j = 0; j < r; j++) {
+			for (int j = 0; j < c; j++) {
 				int i2 = i;
 				if( num[i][j] != 0 && (i == 0 || words[i-1][j] == '*') ) {
 					printf("%3d.", num[i][j]);
