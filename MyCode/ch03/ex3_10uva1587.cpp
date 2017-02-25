@@ -5,26 +5,6 @@
 #include <stdio.h>
 #include <string.h>
 
-//int issquare (int a, int b)
-//{
-//	return a == b;
-//}
-
-//int box(int a, int b, int c, int d)
-//{
-//	int result = 0; // can't make a box
-//	if (a == c) { 
-//		if (b == d) {
-//			if (c == d) result = 3; // square
-//			else result = 1; // the opposite face
-//		}
-//		else result = 2; // the beside
-//	} 
-//	else if (b == c) result = 2; // the beside
-//
-//	return result;
-//}
-
 int issame (int a, int b, int c, int d) 
 {
 	return a == c && b == d;
@@ -32,8 +12,8 @@ int issame (int a, int b, int c, int d)
 
 int main()
 {
-	freopen("test.in", "r", stdin);
-	freopen("test.out", "w", stdout);
+//	freopen("test.in", "r", stdin);
+//	freopen("test.out", "w", stdout);
 	
 	int a1[6], a2[6], a3[12] = {};
 	int i = 0, k = 0, x, y;
@@ -49,7 +29,7 @@ int main()
 			int diff = 0;
 			for (i = 0; i < 12; i++){
 				int j, find = 0;
-				printf("%d ", a3[i]);
+//				printf("%d ", a3[i]);
 				for (j = 0; j < i; j++) {
 					if (a3[i] == a3[j]) { find = 1; break; }
 				}
@@ -71,9 +51,9 @@ int main()
 					if (samefallet != 2) {flag = 0; break;}				
 				}
 			}
-			else if (diff == 2 && square == 2) { flag = 1; printf("diff2\n"); }
-			else if (diff == 1) { flag = 1; printf("diff1\n");}
-			else { flag = 0; printf("else\n"); }
+			else if (diff == 2 && square == 2) { flag = 1;/* printf("diff2\n");*/ }
+			else if (diff == 1) { flag = 1; /*printf("diff1\n");*/}
+			else { flag = 0; /*printf("else\n");*/ }
 
 			printf("%s\n", flag? "POSSIBLE": "IMPOSSIBLE");
 			i = 0, k = 0;
@@ -82,6 +62,5 @@ int main()
 			memset(a3, 0, sizeof(int) * 12);
 		}
 	}
-	
 	return 0;
 }
